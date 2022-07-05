@@ -1,4 +1,6 @@
 import { useState, useEffect, useMemo } from 'react';
+import DisplayResults from './components/DisplayResults';
+import FindCountries from './components/FindCountries';
 
 function App() {
   const [input, setInput] = useState('');
@@ -23,31 +25,10 @@ function App() {
   );
 
   return (
-    <div>
-      <label htmlFor="country">Find countries</label>
-      <input
-        id="country"
-        onChange={handleInput}
-        value={input}
-        type="text"
-        placeholder="country name"
-      />
-      <div>
-        {input &&
-          (filterCountries.length > 10 ? (
-            <p>
-              Too many matches. Make your search query more specific or try
-              another word.
-            </p>
-          ) : filterCountries.length > 1 ? (
-            filterCountries.map((country) => <p>{country.name.common}</p>)
-          ) : (
-            filterCountries.map((country) => {
-              return <h1>{country.name.common}</h1>;
-            })
-          ))}
-      </div>
-    </div>
+    <>
+      <FindCountries handleInput={handleInput} input={input} />
+      {input && <DisplayResults filterCountries={filterCountries} />}
+    </>
   );
 }
 
