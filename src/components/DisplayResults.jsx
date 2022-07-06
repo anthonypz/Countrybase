@@ -9,11 +9,13 @@ const DisplayResults = ({ filterCountries }) => {
     </p>
   ) : filterCountries.length > 1 ? (
     filterCountries.map((country) => {
-      return <DisplayMultipleCountries country={country} />;
+      return (
+        <DisplayMultipleCountries key={country.name.common} country={country} />
+      );
     })
   ) : (
     filterCountries.map((country) => {
-      return <DisplayCountryInfo country={country} />;
+      return <DisplayCountryInfo key={country.name.common} country={country} />;
     })
   );
 };

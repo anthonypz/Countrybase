@@ -20,7 +20,7 @@ const DisplayCountryInfo = ({ country }) => {
       <h2>Languages:</h2>
       <ul>
         {Object.values(country.languages).map((lang) => (
-          <li>{lang}</li>
+          <li key={lang}>{lang}</li>
         ))}
       </ul>
       <img
