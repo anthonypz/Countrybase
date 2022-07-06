@@ -15,6 +15,14 @@ const DisplayCountryInfo = ({ country }) => {
         <strong>Area:</strong> {country.area.toLocaleString()} square kilometers
       </p>
       <p>
+        <strong>Currency:</strong>{' '}
+        {Object.keys(country.currencies).map((currency) => (
+          <span key={currency}>
+            {`${country.currencies[currency].name}(${currency}) • ${country.currencies[currency].symbol}`}
+          </span>
+        ))}
+      </p>
+      <p>
         <strong>Region:</strong> {country.region}
       </p>
       <p>
@@ -35,7 +43,7 @@ const DisplayCountryInfo = ({ country }) => {
         src={country.flags.svg}
         width="200"
         height="auto"
-        alt="country flag"
+        alt={`flag of ${country.name.common}`}
       />
     </div>
   );
