@@ -1,3 +1,6 @@
+import DisplayCountryInfo from './DisplayCountryInfo';
+import DisplayMultipleCountries from './DisplayMultipleCountries';
+
 const DisplayResults = ({ filterCountries }) => {
   return filterCountries.length > 10 ? (
     <p>
@@ -5,10 +8,12 @@ const DisplayResults = ({ filterCountries }) => {
       word.
     </p>
   ) : filterCountries.length > 1 ? (
-    filterCountries.map((country) => <p>{country.name.common}</p>)
+    filterCountries.map((country) => {
+      return <DisplayMultipleCountries country={country} />;
+    })
   ) : (
     filterCountries.map((country) => {
-      return <h1>{country.name.common}</h1>;
+      return <DisplayCountryInfo country={country} />;
     })
   );
 };
