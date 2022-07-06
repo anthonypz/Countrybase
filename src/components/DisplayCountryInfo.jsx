@@ -3,17 +3,25 @@ const DisplayCountryInfo = ({ country }) => {
     <div>
       <h1>{country.name.common}</h1>
       <p>
-        Capital:{' '}
+        <strong>Capital:</strong>{' '}
         {Array.isArray(country.capital)
           ? country.capital.join(', ')
           : country.capital}
       </p>
-      <p>Population: {country.population}</p>
-      <p>Area: {country.area} square kilometres</p>
-      <p>Region: {country.region}</p>
-      <p>Subregion: {country.subregion}</p>
       <p>
-        Google maps:{' '}
+        <strong>Population:</strong> {country.population.toLocaleString()}
+      </p>
+      <p>
+        <strong>Area:</strong> {country.area.toLocaleString()} square kilometers
+      </p>
+      <p>
+        <strong>Region:</strong> {country.region}
+      </p>
+      <p>
+        <strong>Subregion:</strong> {country.subregion}
+      </p>
+      <p>
+        <strong>Google maps:</strong>{' '}
         <a href={country.maps.googleMaps}>view {country.name.common}</a>
       </p>
 
