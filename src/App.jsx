@@ -18,8 +18,12 @@ function App() {
 
   const filterCountries = useMemo(
     () =>
-      countries.filter((country) =>
-        country.name.common.toLowerCase().includes(input.toLowerCase().trim())
+      countries.filter(
+        (country) =>
+          country.name.common
+            .toLowerCase()
+            .includes(input.toLowerCase().trim()) ||
+          country.cca3.toLowerCase().includes(input.toLowerCase().trim())
       ),
     [input]
   );
