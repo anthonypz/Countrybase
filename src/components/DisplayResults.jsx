@@ -31,14 +31,10 @@ const DisplayResults = ({ filterCountries }) => {
       );
     })
   ) : (
-    filterCountries.map((country) => {
-      return (
-        <>
-          <DisplayCountryInfo key={country.name.common} country={country} />
-          {weather && <DisplayWeather weather={weather} />}
-        </>
-      );
-    })
+    <>
+      <DisplayCountryInfo country={filterCountries[0]} />
+      {weather && <DisplayWeather weather={weather} />}
+    </>
   );
 };
 
