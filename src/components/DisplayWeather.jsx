@@ -2,16 +2,20 @@ import { useEffect, useState } from 'react';
 
 const DisplayWeather = ({ filterCountries }) => {
   const [weather, setWeather] = useState('');
+  const [currentCountry, setCurrentCountry] = useState('');
 
   useEffect(() => {
-    const [lat, lng] = filterCountries[0].capitalInfo.latlng;
-    fetch(
-      `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=${
-        import.meta.env.VITE_API_KEY
-      }&units=imperial`
-    )
-      .then((res) => res.json())
-      .then((data) => setWeather(data));
+    if (filterCountries[0].name.common !== currentCountry) {
+      const [lat, lng] = filterCountries[0].capitalInfo.latlng;
+      fetch(
+        `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=${
+          import.meta.env.VITE_API_KEY
+        }&units=imperial`
+      )
+        .then((res) => res.json())
+        .then((data) => setWeather(data));
+      setCurrentCountry(filterCountries[0].name.common);
+    }
   }, [filterCountries]);
 
   if (weather) {
