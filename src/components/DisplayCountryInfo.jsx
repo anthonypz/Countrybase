@@ -29,6 +29,9 @@ const DisplayCountryInfo = ({ country }) => {
         <strong>Subregion:</strong> {country.subregion}
       </p>
       <p>
+        <strong>Country Code:</strong> {country.cca3}
+      </p>
+      <p>
         <strong>Google maps:</strong>{' '}
         <a href={country.maps.googleMaps}>view {country.name.common}</a>
       </p>
