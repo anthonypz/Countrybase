@@ -23,7 +23,7 @@ function App() {
           country.name.common
             .toLowerCase()
             .includes(input.toLowerCase().trim()) ||
-          country.cca2.toLowerCase().includes(input.toLowerCase().trim())
+          country.cca3.toLowerCase().includes(input.toLowerCase().trim())
       ),
     [input]
   );
