@@ -14,11 +14,13 @@ const DisplayResults = ({ filterCountries }) => {
         <DisplayMultipleCountries key={country.name.common} country={country} />
       );
     })
-  ) : (
+  ) : filterCountries.length === 1 ? (
     <>
       <DisplayCountryInfo country={filterCountries[0]} />
       <DisplayWeather filterCountries={filterCountries} />
     </>
+  ) : (
+    ''
   );
 };
 
