@@ -6,7 +6,7 @@ const DisplayResults = ({ filterCountries, weather }) => {
   return filterCountries.length > 10 ? (
     <p>
       Too many matches. Make your search query more specific or try another
-      word.
+      country.
     </p>
   ) : filterCountries.length > 1 ? (
     filterCountries.map((country) => {
