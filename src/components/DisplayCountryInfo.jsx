@@ -6,7 +6,7 @@ const DisplayCountryInfo = ({ country }) => {
         <strong>Capital:</strong>{' '}
         {Array.isArray(country.capital)
           ? country.capital.join(', ')
-          : country.capital}
+          : country.capital || 'N/A'}
       </p>
       <p>
         <strong>Population:</strong> {country.population.toLocaleString()}
@@ -16,17 +16,19 @@ const DisplayCountryInfo = ({ country }) => {
       </p>
       <p>
         <strong>Currency:</strong>{' '}
-        {Object.keys(country.currencies).map((currency) => (
-          <span key={currency}>
-            {`${country.currencies[currency].name}(${currency}) • ${country.currencies[currency].symbol}`}
-          </span>
-        ))}
+        {country.currencies
+          ? Object.keys(country.currencies).map((currency) => (
+              <span key={currency}>
+                {`${country.currencies[currency].name}(${currency}) • ${country.currencies[currency].symbol}`}
+              </span>
+            ))
+          : 'N/A'}
       </p>
       <p>
         <strong>Region:</strong> {country.region}
       </p>
       <p>
-        <strong>Subregion:</strong> {country.subregion}
+        <strong>Subregion:</strong> {country.subregion || 'N/A'}
       </p>
       <p>
         <strong>Country Code:</strong> {country.cca3}
@@ -38,9 +40,11 @@ const DisplayCountryInfo = ({ country }) => {
 
       <h2>Languages:</h2>
       <ul>
-        {Object.values(country.languages).map((lang) => (
-          <li key={lang}>{lang}</li>
-        ))}
+        {country.languages
+          ? Object.values(country.languages).map((lang) => (
+              <li key={lang}>{lang}</li>
+            ))
+          : 'N/A'}
       </ul>
       <img
         src={country.flags.svg}
