@@ -1,5 +1,3 @@
-// import { useEffect, useState } from 'react';
-
 const DisplayWeather = ({ weather }) => {
   const celsius = ((weather.main.temp - 32) / 1.8).toFixed(2);
   const kilometersPerHour = (weather.wind.speed * 1.609344).toFixed(2);

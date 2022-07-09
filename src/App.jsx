@@ -36,12 +36,15 @@ function App() {
   );
 
   useEffect(() => {
+    // Reset weather state when filter results change to avoid populating new results with old weather data
+    if (filterCountries.length > 1) {
+      setWeather('');
+    }
     if (
       filterCountries.length === 1 &&
       filterCountries[0].capital &&
       filterCountries[0].name.common !== currentCountry
     ) {
-      console.log('went through');
       const [lat, lng] = filterCountries[0].capitalInfo.latlng;
       fetch(
         `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=${
