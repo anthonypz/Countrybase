@@ -1,10 +1,13 @@
 import { useState, useEffect, useMemo } from 'react';
 import DisplayResults from './components/DisplayResults';
 import FindCountries from './components/FindCountries';
+import { useDebouncedValue } from './useDebouncedValue';
 
 function App() {
   const [input, setInput] = useState('');
   const [countries, setCountries] = useState([]);
+
+  const debouncedInput = useDebouncedValue(input, 180);
 
   const handleInput = (event) => {
     setInput(event.target.value);
@@ -22,8 +25,10 @@ function App() {
         (country) =>
           country.name.common
             .toLowerCase()
-            .includes(input.toLowerCase().trim()) ||
-          country.cca3.toLowerCase().includes(input.toLowerCase().trim())
+            .includes(debouncedInput.toLowerCase().trim()) ||
+          country.cca3
+            .toLowerCase()
+            .includes(debouncedInput.toLowerCase().trim())
       ),
     [input]
   );
