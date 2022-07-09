@@ -35,7 +35,13 @@ const DisplayCountryInfo = ({ country }) => {
       </p>
       <p>
         <strong>Google maps:</strong>{' '}
-        <a href={country.maps.googleMaps}>view {country.name.common}</a>
+        <a
+          href={country.maps.googleMaps}
+          target="_blank"
+          rel="noreferrer noopener"
+        >
+          view {country.name.common}
+        </a>
       </p>
 
       <h2>Languages:</h2>
