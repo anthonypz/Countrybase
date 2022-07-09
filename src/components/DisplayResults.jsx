@@ -2,7 +2,7 @@ import DisplayCountryInfo from './DisplayCountryInfo';
 import DisplayMultipleCountries from './DisplayMultipleCountries';
 import DisplayWeather from './DisplayWeather';
 
-const DisplayResults = ({ filterCountries }) => {
+const DisplayResults = ({ filterCountries, weather }) => {
   return filterCountries.length > 10 ? (
     <p>
       Too many matches. Make your search query more specific or try another
@@ -17,7 +17,7 @@ const DisplayResults = ({ filterCountries }) => {
   ) : filterCountries.length === 1 ? (
     <>
       <DisplayCountryInfo country={filterCountries[0]} />
-      <DisplayWeather filterCountries={filterCountries} />
+      {weather && <DisplayWeather weather={weather} />}
     </>
   ) : (
     ''
