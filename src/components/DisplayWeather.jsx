@@ -19,7 +19,7 @@ const DisplayWeather = ({ filterCountries }) => {
         .then((data) => setWeather(data));
       setCurrentCountry(filterCountries[0].name.common);
     }
-  }, [filterCountries]);
+  }, [filterCountries, currentCountry]);
 
   if (weather) {
     const celsius = ((weather.main.temp - 32) / 1.8).toFixed(2);

@@ -30,7 +30,7 @@ function App() {
             .toLowerCase()
             .includes(debouncedInput.toLowerCase().trim())
       ),
-    [input]
+    [countries, debouncedInput]
   );
 
   return (

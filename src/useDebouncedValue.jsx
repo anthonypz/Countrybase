@@ -5,6 +5,6 @@ export function useDebouncedValue(value, wait) {
   useEffect(() => {
     const id = setTimeout(() => setDebouncedValue(value), wait);
     return () => clearTimeout(id);
-  }, [value]);
+  }, [value, wait]);
   return debouncedValue;
 }
