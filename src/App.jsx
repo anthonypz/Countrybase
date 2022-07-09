@@ -7,7 +7,7 @@ function App() {
   const [input, setInput] = useState('');
   const [countries, setCountries] = useState([]);
 
-  const debouncedInput = useDebouncedValue(input, 180);
+  const debouncedInput = useDebouncedValue(input, 400);
 
   const handleInput = (event) => {
     setInput(event.target.value);
