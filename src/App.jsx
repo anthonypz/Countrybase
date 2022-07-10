@@ -38,6 +38,7 @@ function App() {
   useEffect(() => {
     // Reset weather state when filter results change to avoid populating new results with old weather data
     if (filterCountries.length > 1) {
+      setCurrentCountry('');
       setWeather('');
     }
     if (
