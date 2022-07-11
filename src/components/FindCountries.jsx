@@ -1,15 +1,14 @@
+import { TextField } from '@mui/material';
+
 const FindCountries = ({ handleInput, input }) => {
   return (
-    <div>
-      <label htmlFor="country">Find countries</label>
-      <input
-        id="country"
-        onChange={handleInput}
-        value={input}
-        type="text"
-        placeholder="country name"
-      />
-    </div>
+    <TextField
+      id="outlined-basic"
+      label="Search Country"
+      variant="outlined"
+      onChange={handleInput}
+      value={input}
+    />
   );
 };
 
