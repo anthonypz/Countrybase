@@ -7,6 +7,12 @@ const DisplayWeather = ({ weather }) => {
       <p>
         <strong>Temperature:</strong> {weather.main.temp}℉ / {celsius}℃
       </p>
+      <p>
+        <strong>Humidity:</strong> {weather.main.humidity}%
+      </p>
+      <p>
+        <strong>Description:</strong> {weather.weather[0].description || 'N/A'}
+      </p>
       <img
         src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
         alt="weather icon"
