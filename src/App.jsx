@@ -1,7 +1,8 @@
-import { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import DisplayResults from './components/DisplayResults';
 import FindCountries from './components/FindCountries';
 import { useDebouncedValue } from './useDebouncedValue';
+import { Box, Container, CssBaseline } from '@mui/material';
 
 function App() {
   const [input, setInput] = useState('');
@@ -59,12 +60,26 @@ function App() {
   }, [filterCountries, currentCountry]);
 
   return (
-    <>
-      <FindCountries handleInput={handleInput} input={input} />
-      {input && (
-        <DisplayResults filterCountries={filterCountries} weather={weather} />
-      )}
-    </>
+    <React.Fragment>
+      <CssBaseline />
+      <Container
+        maxWidth="sm"
+        sx={{
+          paddingY: '16px',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+      >
+        <Box sx={{ paddingY: '16px' }}>
+          <FindCountries handleInput={handleInput} input={input} />
+        </Box>
+        {input && (
+          <DisplayResults filterCountries={filterCountries} weather={weather} />
+        )}
+      </Container>
+    </React.Fragment>
   );
 }
 
