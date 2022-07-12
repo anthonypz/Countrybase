@@ -2,7 +2,7 @@ import React, { useState, useEffect, useMemo } from 'react';
 import DisplayResults from './components/DisplayResults';
 import FindCountries from './components/FindCountries';
 import { useDebouncedValue } from './useDebouncedValue';
-import { Box, Container, CssBaseline } from '@mui/material';
+import { Box, Container, CssBaseline, Typography } from '@mui/material';
 
 function App() {
   const [input, setInput] = useState('');
@@ -72,6 +72,17 @@ function App() {
           alignItems: 'center',
         }}
       >
+        <Typography variant="h4" component="div">
+          Countrybase
+        </Typography>
+        <Typography
+          variant="subtitle2"
+          color="text.secondary"
+          component="div"
+          gutterBottom
+        >
+          Get facts about any country
+        </Typography>
         <Box sx={{ paddingY: '16px' }}>
           <FindCountries handleInput={handleInput} input={input} />
         </Box>
