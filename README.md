@@ -13,8 +13,6 @@ On the tooling side, I decided to use [Vite](https://vitejs.dev/) as my build to
 
 On the React side, I created reusable components for the restcountries and weather APIs. I decided to use a controlled component for the input. The countries data then gets filtered based on the input's state, passed down through props, and displayed as a separate component. The weather API gets called based on the filtered country's capital info. The final result is a component displaying country data from two different sources. This app uses Material UI's component library for the design, which is an awesome tool to work with. I simply styled the input box and buttons, wrapped the content in a card UI component, and gave the text a lift using the Roboto font with the Typography component.
 
-I decided to try Material UI's component library for building out the app design. 
-
 ## Optimizations
 
 The two biggest optimizations that I made were:
