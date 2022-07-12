@@ -3,7 +3,7 @@ Search for any country and get interesting information back, including the count
 
 **Link to project:** https://countrybase.netlify.app/
 
-<!--- ![alt tag](http://placecorgi.com/1200/650) --->
+<img src="https://i.ibb.co/YW8K0rT/Up-Mock.png" alt="app mockup" border="0" width=300 height=auto />
 
 ## How It's Made:
 
@@ -24,7 +24,3 @@ The two biggest optimizations that I made were:
 ## Lessons Learned:
 
 I learned how to use Vite, Yarn, and work with multiple APIs in one project. I also learned how to secure API keys using environment variables and utilize React hooks like useMemo and useDebounce. Along the way, I also learned about prop drilling and how to avoid it using solutions like useContext, or better yet, component composition when your app's structure becomes deeply nested.
-
-## TODO
-
-- Add styling to the page
