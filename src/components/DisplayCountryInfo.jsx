@@ -1,64 +1,82 @@
+import {
+  Button,
+  CardActions,
+  CardContent,
+  CardMedia,
+  Typography,
+} from '@mui/material';
+
 const DisplayCountryInfo = ({ country }) => {
   return (
-    <div>
-      <h1>{country.name.common}</h1>
-      <p>
-        <strong>Capital:</strong>{' '}
-        {Array.isArray(country.capital)
-          ? country.capital.join(', ')
-          : country.capital || 'N/A'}
-      </p>
-      <p>
-        <strong>Population:</strong> {country.population.toLocaleString()}
-      </p>
-      <p>
-        <strong>Area:</strong> {country.area.toLocaleString()} square kilometers
-      </p>
-      <p>
-        <strong>Currency:</strong>{' '}
-        {country.currencies
-          ? Object.keys(country.currencies).map((currency) => (
-              <span key={currency}>
-                {`${country.currencies[currency].name}(${currency}) • ${country.currencies[currency].symbol}`}
-              </span>
-            ))
-          : 'N/A'}
-      </p>
-      <p>
-        <strong>Region:</strong> {country.region}
-      </p>
-      <p>
-        <strong>Subregion:</strong> {country.subregion || 'N/A'}
-      </p>
-      <p>
-        <strong>Country Code:</strong> {country.cca3}
-      </p>
-      <p>
-        <strong>Google maps:</strong>{' '}
-        <a
-          href={country.maps.googleMaps}
-          target="_blank"
-          rel="noreferrer noopener"
-        >
-          view {country.name.common}
-        </a>
-      </p>
-
-      <h2>Languages:</h2>
-      <ul>
-        {country.languages
-          ? Object.values(country.languages).map((lang) => (
-              <li key={lang}>{lang}</li>
-            ))
-          : 'N/A'}
-      </ul>
-      <img
-        src={country.flags.svg}
-        width="200"
+    <>
+      <CardMedia
+        component="img"
         height="auto"
+        image={country.flags.svg}
         alt={`flag of ${country.name.common}`}
       />
-    </div>
+      <CardContent>
+        <Typography variant="h4" component="div" gutterBottom>
+          {country.name.common}
+        </Typography>
+        <Typography variant="body1" gutterBottom>
+          <strong>Capital:</strong>{' '}
+          {Array.isArray(country.capital)
+            ? country.capital.join(', ')
+            : country.capital || 'N/A'}
+        </Typography>
+        <Typography variant="body1" gutterBottom>
+          <strong>Population:</strong> {country.population.toLocaleString()}
+        </Typography>
+        <Typography variant="body1" gutterBottom>
+          <strong>Area:</strong> {country.area.toLocaleString()} square
+          kilometers
+        </Typography>
+        <Typography variant="body1" gutterBottom>
+          <strong>Currency:</strong>{' '}
+          {country.currencies
+            ? Object.keys(country.currencies).map((currency) => (
+                <span key={currency}>
+                  {`${country.currencies[currency].name} (${currency})`}
+                </span>
+              ))
+            : 'N/A'}
+        </Typography>
+        <Typography variant="body1" gutterBottom>
+          <strong>Region:</strong> {country.region}
+        </Typography>
+        <Typography variant="body1" gutterBottom>
+          <strong>Subregion:</strong> {country.subregion || 'N/A'}
+        </Typography>
+        <Typography variant="body1" gutterBottom>
+          <strong>Country Code:</strong> {country.cca3}
+        </Typography>
+        <Typography variant="h6" component="div" gutterBottom>
+          Languages:
+        </Typography>
+        <ul>
+          {country.languages
+            ? Object.values(country.languages).map((lang) => (
+                <li key={lang}>
+                  <Typography variant="body1" gutterBottom>
+                    {lang}
+                  </Typography>
+                </li>
+              ))
+            : 'N/A'}
+        </ul>
+        <CardActions>
+          <Button
+            size="small"
+            href={country.maps.googleMaps}
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            View {country.name.common} on Google Maps
+          </Button>
+        </CardActions>
+      </CardContent>
+    </>
   );
 };
 
