@@ -15,10 +15,8 @@ On the React side, I created reusable components for the restcountries and weath
 
 ## Optimizations
 
-The two biggest optimizations that I made were:
-1. Using the useMemo hook to memoize the filter results and keeping render times under 2ms in most cases.
-2. Debouncing the input box by using a custom hook when filtering through the country data. This added a 400ms delay to the input field so that re-renders wouldn't happen too frequently and also delayed the display of the results, preventing distractions while typing.
+I Debounced the input box by using a custom hook when filtering through the country data. This added a small delay to the input field so that re-renders wouldn't happen too frequently and also delayed the display of the results, preventing distractions while typing.
 
 ## Lessons Learned:
 
-I learned how to use Vite, Yarn, and work with multiple APIs in one project. I also learned how to secure API keys using environment variables and utilize React hooks like useMemo and useDebounce. Along the way, I also learned about prop drilling and how to avoid it using solutions like useContext, or better yet, component composition when your app's structure becomes deeply nested.
+I learned how to work with Vite, Yarn, multiple APIs in one project, and how to secure API keys using environment variables. Along the way, I also learned about prop drilling and how to avoid it using solutions like useContext, or better yet, component composition when your app's structure becomes deeply nested.
