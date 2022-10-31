@@ -1,5 +1,5 @@
 # Countrybase
-Search for any country and get interesting information back, including the country's capital, population, currency, languages spoken, weather, and more.
+Search for any country and get interesting information back, including the country's capital, population, currency, languages spoken, current weather, and more.
 
 **Link to project:** https://countrybase.netlify.app/
 
